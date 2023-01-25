@@ -1,9 +1,9 @@
 <odoo>
 
-    <template id="notnit_stock_card_report.internal_layout">
+    <template id="stock_card_report.internal_layout">
         <div class="article">
             <link
-                href="/notnit_stock_card_report/static/src/css/report.css"
+                href="/stock_card_report/static/src/css/report.css"
                 rel="stylesheet"
             />
             <t t-out="0" />
@@ -24,33 +24,33 @@
 
     <template id="report_buttons">
         <div class="button_row">
-            <button class="o_notnit_stock_card_reports_print btn btn-sm oe_button"><span
+            <button class="o_stock_card_reports_print btn btn-sm oe_button"><span
                     class="fa fa-print"
                 />Print</button>
-            <button class="o_notnit_stock_card_reports_export btn btn-sm oe_button"><span
+            <button class="o_stock_card_reports_export btn btn-sm oe_button"><span
                     class="fa fa-download"
                 />Export</button>
         </div>
     </template>
 
-    <template id="report_notnit_stock_card_report_html">
-        <div class="o_notnit_stock_card_reports_page">
-            <t t-call="notnit_stock_card_report.report_buttons" />
-            <t t-call="notnit_stock_card_report.report_notnit_stock_card_report_base" />
+    <template id="report_stock_card_report_html">
+        <div class="o_stock_card_reports_page">
+            <t t-call="stock_card_report.report_buttons" />
+            <t t-call="stock_card_report.report_stock_card_report_base" />
         </div>
     </template>
 
-    <template id="notnit_stock_card_report.report_notnit_stock_card_report_pdf">
+    <template id="stock_card_report.report_stock_card_report_pdf">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="notnit_stock_card_report.internal_layout">
-                    <t t-call="notnit_stock_card_report.report_notnit_stock_card_report_base" />
+                <t t-call="stock_card_report.internal_layout">
+                    <t t-call="stock_card_report.report_stock_card_report_base" />
                 </t>
             </t>
         </t>
     </template>
 
-    <template id="notnit_stock_card_report.report_notnit_stock_card_report_base">
+    <template id="stock_card_report.report_stock_card_report_base">
         <t t-foreach="o.product_ids" t-as="product">
             <div class="page">
                 <div class="row">
@@ -58,11 +58,11 @@
                     <h4 class="mt0" t-out="title" style="text-align: center;" />
                 </div>
                 <!-- Display filters -->
-                <t t-call="notnit_stock_card_report.report_notnit_stock_card_report_filters" />
+                <t t-call="stock_card_report.report_stock_card_report_filters" />
                 <!-- Display stock card table -->
                 <div class="act_as_table data_table mt4" style="width: 100%;">
                     <!-- Display header line-->
-                    <t t-call="notnit_stock_card_report.report_stock_card_lines_header" />
+                    <t t-call="stock_card_report.report_stock_card_lines_header" />
                     <!-- Display initial lines -->
                     <t
                         t-set="initial"
@@ -89,7 +89,7 @@
                             t-set="product_balance"
                             t-value="product_balance + product_line.product_in - product_line.product_out"
                         />
-                        <t t-call="notnit_stock_card_report.report_stock_card_lines" />
+                        <t t-call="stock_card_report.report_stock_card_lines" />
                     </t>
                 </div>
                 <p style="page-break-before:always;" />
@@ -97,7 +97,7 @@
         </t>
     </template>
 
-    <template id="notnit_stock_card_report.report_notnit_stock_card_report_filters">
+    <template id="stock_card_report.report_stock_card_report_filters">
         <div class="act_as_table data_table" style="width: 100%;">
             <div class="act_as_row labels">
                 <div class="act_as_cell">Date From</div>
@@ -118,7 +118,7 @@
         </div>
     </template>
 
-    <template id="notnit_stock_card_report.report_stock_card_lines_header">
+    <template id="stock_card_report.report_stock_card_lines_header">
         <div class="act_as_thead">
             <div class="act_as_row labels">
                 <div class="act_as_cell">Date</div>
@@ -130,7 +130,7 @@
         </div>
     </template>
 
-    <template id="notnit_stock_card_report.report_stock_card_lines">
+    <template id="stock_card_report.report_stock_card_lines">
         <div class="act_as_row lines">
             <div class="act_as_cell left">
                 <t t-out="product_line.date.strftime('%Y-%m-%d')" />

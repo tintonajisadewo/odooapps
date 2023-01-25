@@ -24,13 +24,13 @@ class StockCardReportWizard(models.TransientModel):
 
     def button_export_html(self):
         self.ensure_one()
-        action = self.env.ref("notnit_stock_card_report.action_report_notnit_stock_card_report_html")
+        action = self.env.ref("stock_card_report.action_report_stock_card_report_html")
         vals = action.sudo().read()[0]
         context = vals.get("context", {})
         if context:
             context = safe_eval(context)
         model = self.env["report.stock.card.report"]
-        report = model.create(self._prepare_notnit_stock_card_report())
+        report = model.create(self._prepare_stock_card_report())
         context["active_id"] = report.id
         context["active_ids"] = report.ids
         vals["context"] = context
@@ -46,7 +46,7 @@ class StockCardReportWizard(models.TransientModel):
         report_type = "xlsx"
         return self._export(report_type)
 
-    def _prepare_notnit_stock_card_report(self):
+    def _prepare_stock_card_report(self):
         self.ensure_one()
         return {
             "date_from": self.date_from,
@@ -57,5 +57,5 @@ class StockCardReportWizard(models.TransientModel):
 
     def _export(self, report_type):
         model = self.env["report.stock.card.report"]
-        report = model.create(self._prepare_notnit_stock_card_report())
+        report = model.create(self._prepare_stock_card_report())
         return report.print_report(report_type)

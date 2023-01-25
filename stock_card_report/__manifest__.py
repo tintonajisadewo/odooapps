@@ -12,13 +12,13 @@
         "security/ir.model.access.csv",
         "data/paper_format.xml",
         "data/report_data.xml",
-        "reports/notnit_stock_card_report.xml",
-        "wizard/notnit_stock_card_report_wizard_view.xml",
+        "reports/stock_card_report.xml",
+        "wizard/stock_card_report_wizard_view.xml",
     ],
     "assets": {
         "web.assets_backend": [
-            "notnit_stock_card_report/static/src/css/**/*",
-            "notnit_stock_card_report/static/src/js/**/*",
+            "stock_card_report/static/src/css/**/*",
+            "stock_card_report/static/src/js/**/*",
         ]
     },
     "installable": True,

@@ -1,4 +1,4 @@
-odoo.define('notnit_stock_card_report.notnit_stock_card_report_backend', function (require) {
+odoo.define('stock_card_report.stock_card_report_backend', function (require) {
     'use strict';
 
     var core = require('web.core');
@@ -10,8 +10,8 @@ odoo.define('notnit_stock_card_report.notnit_stock_card_report_backend', functio
     var report_backend = Widget.extend(ControlPanelMixin, {
         // Stores all the parameters of the action.
         events: {
-            'click .o_notnit_stock_card_reports_print': 'print',
-            'click .o_notnit_stock_card_reports_export': 'export',
+            'click .o_stock_card_reports_print': 'print',
+            'click .o_stock_card_reports_export': 'export',
         },
         init: function (parent, action) {
             this.actionManager = parent;
@@ -105,7 +105,7 @@ odoo.define('notnit_stock_card_report.notnit_stock_card_report_backend', functio
     });
 
     core.action_registry.add(
-        "notnit_stock_card_report_backend",
+        "stock_card_report_backend",
         report_backend
     );
     return report_backend;
