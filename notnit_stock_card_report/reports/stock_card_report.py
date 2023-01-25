@@ -94,8 +94,8 @@ class StockCardReport(models.TransientModel):
         self.ensure_one()
         action = (
             report_type == "xlsx"
-            and self.env.ref("stock_card_report.action_stock_card_report_xlsx")
-            or self.env.ref("stock_card_report.action_stock_card_report_pdf")
+            and self.env.ref("notnit_stock_card_report.action_notnit_stock_card_report_xlsx")
+            or self.env.ref("notnit_stock_card_report.action_notnit_stock_card_report_pdf")
         )
         return action.report_action(self, config=False)
 
@@ -106,7 +106,7 @@ class StockCardReport(models.TransientModel):
         if report:
             rcontext["o"] = report
             result["html"] = self.env.ref(
-                "stock_card_report.report_stock_card_report_html"
+                "notnit_stock_card_report.report_notnit_stock_card_report_html"
             )._render(rcontext)
         return result
 

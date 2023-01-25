@@ -104,13 +104,13 @@ class TestStockCard(common.TransactionCase):
         return self.env["report.stock.card.report"]
 
     def _getQwebReportName(self):
-        return "stock_card_report.report_stock_card_report_pdf"
+        return "notnit_stock_card_report.report_notnit_stock_card_report_pdf"
 
     def _getXlsxReportName(self):
-        return "stock_card_report.report_stock_card_report_xlsx"
+        return "notnit_stock_card_report.report_notnit_stock_card_report_xlsx"
 
     def _getXlsxReportActionName(self):
-        return "stock_card_report.action_report_stock_card_report_xlsx"
+        return "notnit_stock_card_report.action_report_notnit_stock_card_report_xlsx"
 
     def _getReportTitle(self):
         return "Stock Card Report"

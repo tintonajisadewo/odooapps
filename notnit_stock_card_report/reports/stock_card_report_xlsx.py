@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 
 
 class ReportStockCardReportXlsx(models.AbstractModel):
-    _name = "report.stock_card_report.report_stock_card_report_xlsx"
+    _name = "report.notnit_stock_card_report.report_notnit_stock_card_report_xlsx"
     _description = "Stock Card Report XLSX"
     _inherit = "report.report_xlsx.abstract"
 
@@ -98,7 +98,7 @@ class ReportStockCardReportXlsx(models.AbstractModel):
 
         ws_params = {
             "ws_name": product.name,
-            "generate_ws_method": "_stock_card_report",
+            "generate_ws_method": "_notnit_stock_card_report",
             "title": "Stock Card - {}".format(product.name),
             "wanted_list_filter": [k for k in sorted(filter_template.keys())],
             "col_specs_filter": filter_template,
@@ -109,7 +109,7 @@ class ReportStockCardReportXlsx(models.AbstractModel):
         }
         return [ws_params]
 
-    def _stock_card_report(self, wb, ws, ws_params, data, objects, product):
+    def _notnit_stock_card_report(self, wb, ws, ws_params, data, objects, product):
         ws.set_portrait()
         ws.fit_to_pages(1, 0)
         ws.set_header(XLS_HEADERS["xls_headers"]["standard"])

@@ -8,8 +8,8 @@ export const report_backend = AbstractAction.extend({
     hasControlPanel: true,
     // Stores all the parameters of the action.
     events: {
-        "click .o_stock_card_reports_print": "print",
-        "click .o_stock_card_reports_export": "export",
+        "click .o_notnit_stock_card_reports_print": "print",
+        "click .o_notnit_stock_card_reports_export": "export",
     },
     init: function (parent, action) {
         this._super.apply(this, arguments);
@@ -100,4 +100,4 @@ export const report_backend = AbstractAction.extend({
         return Promise.resolve();
     },
 });
-core.action_registry.add("stock_card_report_backend", report_backend);
+core.action_registry.add("notnit_stock_card_report_backend", report_backend);
